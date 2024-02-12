@@ -10,16 +10,22 @@
 
     <input type="email" name="email" id="email" required minlength="8">
 
+    <label for="telefoonnummer">Telefoonnummer: </label>
+    <input type="tel" name ="telefoonnummer" id="telefoonnummer" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" required>
+     
     <input type="submit" value="Verstuur!">
+    <input type="reset"> 
+    
 
 </form>
 
 <script>
 
     const email = document.getElementById("email");
+    const telefoonnummerinput = document.getElementById("telefoonnummer");
 
     email.addEventListener("input", (event) => {
-        debugger
+        
         if (email.validity.typeMismatch) {
             email.setCustomValidity("Voer een geldig emailadres in!");
             email.reportValidity();
@@ -27,6 +33,17 @@
             email.setCustomValidity("");
         }
     });
+
+    telefoonnummer.addEventListener("input", (event) => {
+
+        if (telefoonnummerinput.validity.typeMismatch) {
+            telefoonnummerinput.setCustomValidity("Voer een geldig telefoonnummer in!");
+            telefoonnummerinput.reportValidity
+        }
+        else {
+            telefoonnummerinput.setCustomValidity("");
+        }
+    }
 
 </script>
 

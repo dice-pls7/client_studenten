@@ -2,10 +2,9 @@ class GDPR {
 
     constructor() {
         
-        this.showStatus();
+        
         this.showContent();
         this.bindEvents();
-
         if(this.cookieStatus() !== 'accept') this.showGDPR();
         if(this.cookieStatus() == 'reject') this.hideGDPR();
     }
@@ -13,8 +12,7 @@ class GDPR {
     bindEvents() {
         let buttonAccept = document.querySelector('.gdpr-consent__button--accept');
         buttonAccept.addEventListener('click', () => {
-            this.cookieStatus('accept');
-            this.showStatus();
+            this.cookieStatus('accept');           
             this.showContent();
             this.hideGDPR();
         });
@@ -22,7 +20,6 @@ class GDPR {
         let buttonReject = document.querySelector('.gdpr-consent__button--reject');
         buttonReject.addEventListener('click', () => {
             this.cookieStatus('reject');
-            this.showStatus();
             this.showContent();
             this.hideGDPR();
         });
